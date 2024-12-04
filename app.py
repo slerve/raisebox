@@ -27,7 +27,7 @@ def get_access_token():
 @app.route('/')
 def home():
     """Serve the homepage."""
-    return render_template('index.html')
+    return render_template('/raisebox/templates/index.html')
 
 
 @app.route('/stk_push', methods=['POST'])
