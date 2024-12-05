@@ -9,6 +9,11 @@
    line-height: 54px;
    color: white;
 }
+        h3{
+            font-size: 40px;
+            font-weight: bold;
+            color: #7FFF00;
+        }
 
 body{
     width: 100%;
@@ -116,7 +121,7 @@ footer .social-links a:hover {
       </div>
     </section>
 <div class="container"> 
-<img src="/raisebox/static/images/mpesa.png" alt="MPESA"> 
+<h3>LIPA NA MPESA</h3> 
 <h2>Donate Funds</h2>
     <form id="paymentForm">
         <label for="phone">Phone Number:</label>
@@ -129,7 +134,26 @@ footer .social-links a:hover {
     </form>
         <div id="response"></div>
 </div>
- <script src="/raisebox/static/js/script.js"></script>
+ <script>
+     document.getElementById('paymentForm').addEventListener('submit', function (e) {
+    e.preventDefault();
+
+    const phone = document.getElementById('phone').value;
+    const amount = document.getElementById('amount').value;
+
+    fetch('/stk_push', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ phone, amount })
+    })
+        .then(response => response.json())
+        .then(data => {
+            const responseDiv = document.getElementById('response');
+            responseDiv.innerHTML = `<p>${JSON.stringify(data)}</p>`;
+        })
+        .catch(err => console.error('Error:', err));
+});
+ </script>
 
 <!-- Footer -->
     <footer>
