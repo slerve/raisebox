@@ -11,7 +11,7 @@ CONSUMER_SECRET = 'UKGo8hUqk18U9P19TcGAQSeNbmjTAcucZQeTEA3lDG97iFoVjm5lMu4tGuXhK
 SHORTCODE = '3021236'
 B2C_SHORTCODE = '3021236'
 PASSKEY = 'your_lipa_na_mpesa_passkey'
-SECURITY_CREDENTIAL = 'WENo+SxNpGoh+EIajZIwycVCs8A/lyhJJCEv6/cs09UuuAI9Hw0iHgAqCcxyWYVxE+aivt4f3SJ2yN//5NZN9/sER3LjjqUi+zcjbbTTbn8CP3gOrIQMkNh3NfM0vPeg9YzmnLp/2kCf/cfJ1TFTT0pMc9OZcMTNLeo0TUeoG1vzBkieSz7c+TmSP3EQANnZE9cbfQEDS4iYv9jKpsrwoUDRtSa0lbif7m/qNfaQaf3hQ1d5zNef3LGgpY/dRiHpSc1Tjefr5UcRXfRb3gqMKIjX8M77v86RZyRpAMFs2XeMh905ddiPskgMGvaVLVMrYt+UvB2E0i3daQkBd5UFGA=='
+SECURITY_CREDENTIAL = 'aiE7M0U9VmDrHzl7l22FHoOzXoQcM4lMshVGk37WG3BR1mH5PBCO+vTuPQdg/TyQ/B0kMydaa4XB2mSv30o2hEgImePnMJ0pjChONmvKQo85YPb/3RO9X5X7OUMqLACXXX6zCJWspk7bIwnfEsYRzXul1GcnU9xKlMPd4uRi50na/1ZQn4PVoiYiLNeZHIVHu26o612+NlpwXyaBl+IlR9n4gEjXga/OLny75KFohU5CMfeSGxg2rHKL/7FJdwpB8Hdg98wUB0EIvuhm98cNEEs/3qXxVJmy27U1cMApe15M8zcdswfE+jLD55hqggnsBZE5WRjCHkoNGL5/MMrS6w=='
 TARGET_PHONE = '254793052455'  # Replace with target phone number
 
 BASE_URL = 'https://api.safaricom.co.ke'  # Use https://api.safaricom.co.ke for production
@@ -23,7 +23,12 @@ def get_access_token():
         f"{BASE_URL}/oauth/v1/generate?grant_type=client_credentials",
         auth=(CONSUMER_KEY, CONSUMER_SECRET)
     )
-    return response.json()['access_token']
+    print("Access Token Response:", response.json())  # Debugging
+    if response.status_code == 200:
+        return response.json()['access_token']
+    else:
+        raise Exception(f"Failed to get access token: {response.json()}")
+
 
 
 @app.route('/')
