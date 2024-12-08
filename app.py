@@ -8,13 +8,13 @@ app = Flask(__name__)
 # M-Pesa API Credentials
 CONSUMER_KEY = '7y0BiTBcCVoJRdg5bMUS5IF22SfiZGwbRQ3rDJav0DubIocC'
 CONSUMER_SECRET = 'UKGo8hUqk18U9P19TcGAQSeNbmjTAcucZQeTEA3lDG97iFoVjm5lMu4tGuXhKzkw'
-SHORTCODE = '3021236'
-B2C_SHORTCODE = '3021236'
+SHORTCODE = '174379'
+B2C_SHORTCODE = '174379'
 PASSKEY = 'your_lipa_na_mpesa_passkey'
 SECURITY_CREDENTIAL = 'aiE7M0U9VmDrHzl7l22FHoOzXoQcM4lMshVGk37WG3BR1mH5PBCO+vTuPQdg/TyQ/B0kMydaa4XB2mSv30o2hEgImePnMJ0pjChONmvKQo85YPb/3RO9X5X7OUMqLACXXX6zCJWspk7bIwnfEsYRzXul1GcnU9xKlMPd4uRi50na/1ZQn4PVoiYiLNeZHIVHu26o612+NlpwXyaBl+IlR9n4gEjXga/OLny75KFohU5CMfeSGxg2rHKL/7FJdwpB8Hdg98wUB0EIvuhm98cNEEs/3qXxVJmy27U1cMApe15M8zcdswfE+jLD55hqggnsBZE5WRjCHkoNGL5/MMrS6w=='
 TARGET_PHONE = '254793052455'  # Replace with target phone number
 
-BASE_URL = 'https://api.safaricom.co.ke'  # Use https://api.safaricom.co.ke for production
+BASE_URL = 'https://sandbox.safaricom.co.ke'  # Use https://api.safaricom.co.ke for production
 
 
 def get_access_token():
